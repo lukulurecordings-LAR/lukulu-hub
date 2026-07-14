@@ -29,7 +29,7 @@ def generate_label_insight(metrics: dict[str, Any]) -> dict[str, Any]:
 
     client = OpenAI(api_key=settings.openai_api_key)
     response = client.responses.create(
-        model='gpt-5.5',
+        model=settings.openai_model,
         input=[
             {
                 'role': 'system',
