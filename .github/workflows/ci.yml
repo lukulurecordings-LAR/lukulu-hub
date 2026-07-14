@@ -18,9 +18,11 @@ jobs:
         run: |
           test -f README.md
           test -f docs/architecture.md
+          test -f docs/brand-identity.md
           grep -q "Lukulu Hub" README.md
           grep -q "FastAPI" docs/architecture.md
           grep -q "Supabase" docs/architecture.md
+          grep -q "Afro House" docs/brand-identity.md
 
   backend-fastapi:
     runs-on: ubuntu-latest
@@ -39,6 +41,8 @@ jobs:
         run: pip install -r requirements.txt
       - name: Import FastAPI app
         run: python -c "from app.main import app; print(app.title)"
+      - name: Build FastAPI Docker image
+        run: docker build -t lukulu-hub-api:ci .
 
   frontend-placeholder:
     runs-on: ubuntu-latest
