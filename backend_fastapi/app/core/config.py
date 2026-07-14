@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     supabase_publishable_key: str = ''
     supabase_service_role_key: str = ''
     openai_api_key: str = ''
+    openai_model: str = 'gpt-4.1-mini'
     default_organization_slug: str = 'lukulu-recordings'
 
     model_config = SettingsConfigDict(env_file='.env', env_file_encoding='utf-8', extra='ignore')
