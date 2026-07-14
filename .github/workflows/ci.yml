@@ -22,16 +22,27 @@ jobs:
           grep -q "FastAPI" docs/architecture.md
           grep -q "Supabase" docs/architecture.md
 
+  backend-fastapi:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend_fastapi
+    steps:
+      - uses: actions/checkout@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: backend_fastapi/requirements.txt
+      - name: Install backend dependencies
+        run: pip install -r requirements.txt
+      - name: Import FastAPI app
+        run: python -c "from app.main import app; print(app.title)"
+
   frontend-placeholder:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
       - name: Frontend placeholder
-        run: echo "Next.js/AppDeploy workflow will be enabled when frontend source is synced into this repo."
-
-  backend-placeholder:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-      - name: Backend placeholder
-        run: echo "FastAPI Cloud workflow will be enabled when backend source is added."
+        run: echo "Next.js/AppDeploy or Vercel workflow will be enabled when frontend source is synced into this repo."
