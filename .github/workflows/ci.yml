@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  project-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Check project docs
+        run: |
+          test -f README.md
+          test -f docs/architecture.md
+          grep -q "Lukulu Hub" README.md
+          grep -q "FastAPI" docs/architecture.md
+          grep -q "Supabase" docs/architecture.md
+
+  frontend-placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Frontend placeholder
+        run: echo "Next.js/AppDeploy workflow will be enabled when frontend source is synced into this repo."
+
+  backend-placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Backend placeholder
+        run: echo "FastAPI Cloud workflow will be enabled when backend source is added."
