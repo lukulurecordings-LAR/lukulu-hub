@@ -34,3 +34,10 @@ Never commit passwords, API keys, Facebook or Instagram logins, Supabase secret 
 AppDeploy preview: https://d79f9e4f13f65eacaa.v2.appdeploy.ai/
 
 Planned short domain: https://hub.lukulurecordings.com/
+
+## VS Code AI
+
+To use Ace Data Cloud credits through the recommended Continue extension, follow
+the [VS Code setup guide](docs/vscode-ace-data-cloud.md). The repository contains
+a shared provider configuration, but credentials must be added to Continue's
+local secret store and must never be committed.

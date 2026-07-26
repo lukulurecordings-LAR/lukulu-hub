@@ -1,0 +1,15 @@
+name: Lukulu Hub (Ace Data Cloud)
+version: 1.0.0
+schema: v1
+
+models:
+  - name: Ace Data Cloud
+    provider: openai
+    model: gpt-4o-mini
+    apiBase: https://api.acedata.cloud/v1
+    apiKey: ${{ secrets.ACEDATA_API_KEY }}
+    roles:
+      - chat
+      - edit
+      - apply
+

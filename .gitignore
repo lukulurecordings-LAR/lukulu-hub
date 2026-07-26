@@ -1,0 +1,13 @@
+# Local credentials and environment overrides
+.env
+.env.*
+!.env.example
+backend_fastapi/.env
+
+# Continue stores local state here; the shared provider config is safe to commit.
+.continue/.env
+
+# Python
+__pycache__/
+*.py[cod]
+
